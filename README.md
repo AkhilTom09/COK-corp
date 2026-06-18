@@ -25,6 +25,7 @@ Instead of building a separate Python/Node.js backend API from scratch, Supabase
 - **Attachments & Links:** A list where admins can paste URLs or upload PDFs.
 - **Nested Comments:** A simple chronological chat log inside each project. ==Comments should allow mentions==. maybe search as well. 
 - Person View: projects assigned to each person 
+- Instant deploys without downtime
 
 
 
