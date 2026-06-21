@@ -61,7 +61,7 @@ export default function ProjectDetailTemplate({ project, onBack, onAddComment }:
         
         {/* Left Side: Comments feed */}
         <div style={{ backgroundColor: '#ffffff', borderRadius: '12px', padding: '1.5rem', border: '1px solid #e2e8f0' }}>
-          <h3 style={{ margin: '0 0 1.25rem 0', fontSize: '1.15rem', fontWeight: 600 }}>Team Logs & Workspace Feed</h3>
+          <h3 style={{ margin: '0 0 1.25rem 0', fontSize: '1.15rem', fontWeight: 600 }}>Activity Log</h3>
           
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginBottom: '1.5rem' }}>
             {project.comments.map((c) => (

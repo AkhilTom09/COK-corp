@@ -6,65 +6,107 @@ import ProjectDetailTemplate from '../components/ProjectDetailTemplate';
 // 1. Structural Database Template Matrix
 const MOCK_DB_PROJECTS = [
   { 
-    id: 'big-short', 
-    title: 'Big Short Option Backtester', 
+    id: 'brahmapuram-waste', 
+    title: 'Vaduthala Railway Overbridge Construction', 
     status: 'In Progress', 
-    progress: 65, 
-    admin: 'Adith', 
-    priority: 'High', 
-    updated: '2 hours ago',
-    description: 'Production-grade options strategy engine simulating RSI signals on the Nifty 50 index with dynamic stop-loss trackers.',
+    progress: 45, 
+    admin: 'Akhil', 
+    priority: 'High Priority', 
+    updated: '10 mins ago',
+    description: 'Constructing overbridge to bypass current railway crossing.',
     comments: [
-      { id: 1, user: 'Adith', text: 'Completed testing the custom RSI indicator parameters over the historical 5-year log.', time: '2 hours ago' },
-      { id: 2, user: 'System', text: 'Automated integration check completed successfully.', time: '5 hours ago' }
+      { id: 1, user: 'Clerk George', text: 'Test piling started.', time: '17 May 2026' },
+      { id: 1, user: 'Clerk George', text: 'Test piling completed.', time: '22 June 2026' }
     ],
-    resources: ['📄 Options_Backtest_V1.pdf', '🔗 Core Data Repository', '📄 Risk_Management_Rules.pdf']
+    resources: ['📄 Railway_Overbridge_Plan.pdf', '🔗 Environmental Impact Data']
   },
   { 
-    id: 'note-server', 
-    title: 'Mobile Note Access API Server', 
-    status: 'Blocked', 
-    progress: 40, 
+    id: 'thammanam-road', 
+    title: 'Thammanam–Pulleppady Road Four-Lane Widening & Land Acquisition', 
+    status: 'Cancelled', 
+    progress: 0, 
     admin: 'Adith', 
-    priority: 'Medium', 
+    priority: 'High Priority', 
     updated: '1 day ago',
-    description: 'Local backend microservice environment designed to securely parse personal files and serve them via high-performance network protocols to remote mobile clients.',
+    description: 'Crucial urban arterial roadway alignment project aimed at easing heavy peak traffic gridlock across downtown Ernakulam sectors.',
     comments: [
-      { id: 1, user: 'System', text: 'Port connection error detected on incoming network interface hook.', time: '1 day ago' },
-      { id: 2, user: 'Adith', text: 'Debugging local IP mapping restrictions on the MacBook firewall now.', time: '18 hours ago' }
+      { id: 1, user: 'System', text: 'Land valuation files pending physical verification stamp at the taluk revenue office.', time: '1 day ago' },
+      { id: 2, user: 'Adith', text: 'Following up with municipal surveyors regarding division line objections.', time: '5 hours ago' }
     ],
-    resources: ['📄 API_Endpoints_Spec.pdf', '🔗 Local Networking Logs']
+    resources: ['📄 Property_Survey_Map_V4.pdf', '🔗 Clearance Tracker']
   },
   { 
-    id: 'code-engine', 
-    title: 'Code Engine MCP Indexer', 
+    id: 'water-supply-190mld', 
+    title: '190 MLD Water Treatment Facility', 
+    status: 'Planning', 
+    progress: 12, 
+    admin: 'System', 
+    priority: 'Medium Priority', 
+    updated: '3 hours ago',
+    description: 'Comprehensive engineering phase for a mega-capacity purification grid to solve distribution deficits in local coastal divisions.',
+    comments: [
+      { id: 1, user: 'System', text: 'Initial allocation budget drafts uploaded successfully to state finance portal.', time: '3 hours ago' }
+    ],
+    resources: ['📄 Intake_Structure_Drafts.pdf']
+  },
+  { 
+    id: 'canal-rejuvenation', 
+    title: 'Vembanad Lake & Canal Rejuvenation Mission', 
+    status: 'Cancelled', 
+    progress: 0, 
+    admin: 'Adith', 
+    priority: 'Medium Priority', 
+    updated: '1 week ago',
+    description: 'Proposed desiltation, eco-restoration, and structural pathway embankments across primary tidal water channels feeding the lake basin.',
+    comments: [
+      { id: 1, user: 'Adith', text: 'Project closed out due to budgetary realignments and overlap with centrally funded irrigation initiatives.', time: '1 week ago' }
+    ],
+    resources: ['📄 Decommissioning_Report.pdf']
+  },
+  { 
+    id: 'traffic-management', 
+    title: 'Integrated Traffic Management System (ITMS)', 
     status: 'Completed', 
     progress: 100, 
     admin: 'System', 
-    priority: 'Low', 
-    updated: '3 days ago',
-    description: 'Advanced code parser utility utilizing tree-sitter libraries to index structural semantic context across legacy codebases.',
+    priority: 'Low Priority', 
+    updated: '2 days ago',
+    description: 'Deployment of automated smart traffic signal controllers alongside PTZ violation detection networks across 35 major junctions.',
     comments: [
-      { id: 1, user: 'System', text: 'Production deployment build successfully initialized globally.', time: '3 days ago' }
+      { id: 1, user: 'System', text: 'Red Light Violation Detection hardware networks fully synchronized with central servers.', time: '2 days ago' }
     ],
-    resources: ['📄 System_Architecture_V2.pdf', '🔗 Live Deployment Endpoint']
+    resources: ['📄 Junction_Hardware_Specs.pdf', '🔗 Live Camera Interface']
+  },
+  { 
+    id: 'goshree-bridge', 
+    title: 'Goshree–Bolghatty Parallel Bridge Engineering Framework', 
+    status: 'Planning', 
+    progress: 5, 
+    admin: 'Adith', 
+    priority: 'Low Priority', 
+    updated: '5 hours ago',
+    description: 'Preparatory alignment assessment mapping and load-bearing test setups for the twin island connectivity thoroughfare.',
+    comments: [
+      { id: 1, user: 'Adith', text: 'Preliminary soil testing data requested from offshore drilling consultant.', time: '5 hours ago' }
+    ],
+    resources: ['📄 Bridge_Structural_Scope.pdf']
   }
 ];
+
+// Clean global geometric typography system variables
+const FONT_STACK = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif';
 
 export default function HomeDashboard() {
   const [projects, setProjects] = useState(MOCK_DB_PROJECTS);
   const [filter, setFilter] = useState('All');
   const [activeProjectId, setActiveProjectId] = useState<string | null>(null);
 
-  // Safely locate the chosen project data block
   const selectedProject = projects.find(p => p.id === activeProjectId);
   
-  // Apply visual category filtering
   const filteredProjects = filter === 'All' 
     ? projects 
     : projects.filter(p => p.status === filter);
 
-  // Centralized Database Update Simulator Hook
   const handleAddComment = (projectId: string, text: string) => {
     setProjects(prevProjects => 
       prevProjects.map(p => p.id === projectId 
@@ -75,28 +117,28 @@ export default function HomeDashboard() {
   };
 
   return (
-    <div style={{ minHeight: '100vh', backgroundColor: '#f8fafc' }}>
-      {/* Universal Sticky Top Bar Navigation */}
-      <nav style={{ backgroundColor: '#ffffff', borderBottom: '1px solid #e2e8f0', padding: '1rem 2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', position: 'sticky', top: 0, zIndex: 50 }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', cursor: 'pointer' }} onClick={() => setActiveProjectId(null)}>
-          <span style={{ fontSize: '1.5rem' }}>🎯</span>
-          <h1 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#0f172a', margin: 0 }}>ApexTracker</h1>
+    <div style={{ minHeight: '100vh', backgroundColor: '#f9fafb', fontFamily: FONT_STACK, WebkitFontSmoothing: 'antialiased' }}>
+      
+      {/* Navigation Header */}
+      <nav style={{ backgroundColor: '#ffffff', borderBottom: '1px solid #f3f4f6', padding: '0.85rem 2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', position: 'sticky', top: 0, zIndex: 50 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', cursor: 'pointer' }} onClick={() => setActiveProjectId(null)}>
+          {/* <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '28px', height: '28px', backgroundColor: '#0f172a', borderRadius: '6px', color: '#fff', fontSize: '0.95rem', fontWeight: 700 }}>A</div> */}
+          <h1 style={{ fontSize: '1.05rem', fontWeight: 600, color: '#0f172a', margin: 0, letterSpacing: '-0.025em' }}>Future Kochi Mission</h1>
         </div>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
-          <div style={{ position: 'relative', fontSize: '1.25rem', cursor: 'pointer' }}>
-            🔔<span style={{ position: 'absolute', top: '-4px', right: '-4px', backgroundColor: '#ef4444', color: '#fff', fontSize: '0.7rem', fontWeight: 'bold', padding: '2px 5px', borderRadius: '9999px' }}>3</span>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem' }}>
+          <div style={{ position: 'relative', fontSize: '1.1rem', cursor: 'pointer', color: '#4b5563' }}>
+            ‼️<span style={{ position: 'absolute', top: '-2px', right: '-2px', backgroundColor: '#ef4444', color: '#fff', fontSize: '0.65rem', fontWeight: 700, padding: '1px 4px', borderRadius: '9999px' }}>3</span>
           </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-            <div style={{ width: '32px', height: '32px', borderRadius: '50%', backgroundColor: '#6366f1', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold', fontSize: '0.85rem' }}>A</div>
-            <span style={{ fontSize: '0.9rem', fontWeight: 500, color: '#334155' }}>Adith (Admin)</span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', borderLeft: '1px solid #e5e7eb', paddingLeft: '1.25rem' }}>
+            <div style={{ width: '28px', height: '28px', borderRadius: '50%', backgroundColor: '#6366f1', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: '0.8rem' }}>A</div>
+            <span style={{ fontSize: '0.85rem', fontWeight: 500, color: '#4b5563' }}>Adith</span>
           </div>
         </div>
       </nav>
 
       {/* Main Core View Area */}
-      <main style={{ maxWidth: '1200px', margin: '0 auto', padding: '2.5rem 2rem' }}>
+      <main style={{ maxWidth: '1140px', margin: '0 auto', padding: '3rem 2rem' }}>
         
-        {/* COMPILATION SECURITY GUARD: Confirm both the pointer and match exist before invoking the layout template */}
         {activeProjectId && selectedProject ? (
           <ProjectDetailTemplate 
             project={selectedProject} 
@@ -105,29 +147,34 @@ export default function HomeDashboard() {
           />
         ) : (
           
-          // MASTER PORTFOLIO GRID VIEW
           <div>
-            <div style={{ marginBottom: '2rem' }}>
-              <h2 style={{ fontSize: '1.75rem', fontWeight: 700, color: '#0f172a', margin: 0 }}>Project Portfolio</h2>
-              <p style={{ color: '#64748b', margin: '0.25rem 0 0 0', fontSize: '0.95rem' }}>Monitor progress metrics and engineering tracks across workspaces.</p>
+            <div style={{ marginBottom: '2.5rem' }}>
+              <h2 style={{ fontSize: '1.75rem', fontWeight: 700, color: '#0f172a', margin: 0, letterSpacing: '-0.03em' }}>Project Portfolio</h2>
+              <p style={{ color: '#6b7280', margin: '0.35rem 0 0 0', fontSize: '0.9rem', fontWeight: 400 }}>Monitor metrics and active tracks across software workspaces.</p>
             </div>
 
-            {/* Pill Filters bar */}
-            <div style={{ marginBottom: '2rem', display: 'flex', gap: '0.5rem', borderBottom: '1px solid #e2e8f0', paddingBottom: '1rem' }}>
-              {['All', 'In Progress', 'Blocked', 'Completed'].map((status) => (
+            {/* Premium Sub-Navigation Tab Segment */}
+            <div style={{ marginBottom: '1.75rem', display: 'flex', gap: '0.35rem', borderBottom: '1px solid #e5e7eb', paddingBottom: '0.75rem' }}>
+              {['All', 'In Progress', 'Planning', 'Cancelled', 'Completed'].map((status) => (
                 <button 
                   key={status} 
                   onClick={() => setFilter(status)}
                   style={{ 
-                    padding: '0.5rem 1.15rem', 
-                    borderRadius: '20px', 
+                    padding: '0.4rem 1rem', 
+                    borderRadius: '6px', 
                     border: 'none', 
                     cursor: 'pointer', 
-                    backgroundColor: filter === status ? '#0f172a' : '#e2e8f0', 
-                    color: filter === status ? '#ffffff' : '#475569', 
-                    fontWeight: 600, 
-                    fontSize: '0.875rem',
-                    transition: 'all 0.15s ease'
+                    backgroundColor: filter === status ? '#0f172a' : 'transparent', 
+                    color: filter === status ? '#ffffff' : '#6b7280', 
+                    fontWeight: 500, 
+                    fontSize: '0.85rem',
+                    transition: 'all 0.2s cubic-bezier(0.4, 0, 0.2, 1)'
+                  }}
+                  onMouseEnter={(e) => {
+                    if (filter !== status) e.currentTarget.style.backgroundColor = '#f3f4f6';
+                  }}
+                  onMouseLeave={(e) => {
+                    if (filter !== status) e.currentTarget.style.backgroundColor = 'transparent';
                   }}
                 >
                   {status}
@@ -135,38 +182,94 @@ export default function HomeDashboard() {
               ))}
             </div>
 
-            {/* Grid Layout Cards */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))', gap: '1.5rem' }}>
-              {filteredProjects.map((project) => (
-                <div 
-                  key={project.id}
-                  onClick={() => setActiveProjectId(project.id)}
-                  style={{ backgroundColor: '#ffffff', borderRadius: '12px', padding: '1.5rem', border: '1px solid #e2e8f0', boxShadow: '0 4px 6px -1px rgba(0,0,0,0.03)', cursor: 'pointer', transition: 'transform 0.2s' }}
-                >
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.25rem' }}>
-                    <span style={{ fontSize: '0.75rem', fontWeight: 600, padding: '0.25rem 0.5rem', borderRadius: '6px', backgroundColor: project.priority === 'High' ? '#fee2e2' : project.priority === 'Medium' ? '#ffedd5' : '#f1f5f9', color: project.priority === 'High' ? '#ef4444' : project.priority === 'Medium' ? '#f97316' : '#64748b' }}>
-                      {project.priority} Priority
-                    </span>
-                    <span style={{ fontSize: '0.75rem', fontWeight: 700, padding: '0.25rem 0.625rem', borderRadius: '20px', backgroundColor: project.status === 'Completed' ? '#dcfce7' : project.status === 'Blocked' ? '#fee2e2' : '#fef9c3', color: project.status === 'Completed' ? '#15803d' : project.status === 'Blocked' ? '#b91c1c' : '#a16207' }}>
-                      ● {project.status}
-                    </span>
-                  </div>
+            {/* Stacked Row Layout */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+              {filteredProjects.map((project) => {
+                // Computed semantic theme values
+                const isHigh = project.priority === 'High Priority';
+                const isMed = project.priority === 'Medium Priority';
+                // const accentColor = isHigh ? '#ef4444' : isMed ? '#f97316' : '#6b7280';
+                const accentColor = isHigh ? '#b22b4e' : isMed ? '#e95d2b' : '#f9c8a5';
+                const priorityBg = isHigh ? '#fef2f2' : isMed ? '#fff7ed' : '#f9fafb';
 
-                  <h3 style={{ margin: '0 0 0.5rem 0', fontSize: '1.2rem', fontWeight: 600, color: '#0f172a' }}>{project.title}</h3>
-                  <p style={{ fontSize: '0.85rem', color: '#64748b', margin: '0 0 1.5rem 0' }}>Lead Manager: <b>{project.admin}</b></p>
-                  
-                  {/* Progress Indicator Bar */}
-                  <div style={{ marginBottom: '0.5rem' }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.85rem', marginBottom: '0.35rem' }}>
-                      <span style={{ color: '#64748b', fontWeight: 500 }}>Completion Progress</span>
-                      <span style={{ fontWeight: 700, color: '#0f172a' }}>{project.progress}%</span>
+                const isComplete = project.status === 'Completed';
+                const isCancelled = project.status === 'Cancelled';
+                const isPlanning = project.status === 'Planning';
+                const statusColor = isComplete ? '#10b981' : isCancelled ? '#9ca3af' : isPlanning ? '#7c3cdc': '#f59e0b';
+                const statusBg = isComplete ? '#ecfdf5' : isCancelled ? '#f9fafb' : isPlanning ? '#f8f3ff' : '#fffbeb';
+
+                return (
+                  <div 
+                    key={project.id}
+                    onClick={() => setActiveProjectId(project.id)}
+                    style={{ 
+                      backgroundColor: '#ffffff', 
+                      borderRadius: '10px', 
+                      padding: '1.15rem 1.5rem', 
+                      border: '1px solid #e5e7eb', 
+                      boxShadow: '0 1px 2px 0 rgba(0, 0, 0, 0.02)', 
+                      cursor: 'pointer', 
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'space-between',
+                      gap: '2rem',
+                      position: 'relative',
+                      overflow: 'hidden',
+                      transition: 'all 0.2s cubic-bezier(0.4, 0, 0.2, 1)'
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.borderColor = '#cbd5e1';
+                      e.currentTarget.style.boxShadow = '0 10px 15px -3px rgba(0,0,0,0.04), 0 4px 6px -4px rgba(0,0,0,0.04)';
+                      e.currentTarget.style.transform = 'translateX(4px)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.borderColor = '#e5e7eb';
+                      e.currentTarget.style.boxShadow = '0 1px 2px 0 rgba(0, 0, 0, 0.02)';
+                      e.currentTarget.style.transform = 'none';
+                    }}
+                  >
+                    {/* Visual left accent bar matching urgency */}
+                    <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: '4px', backgroundColor: accentColor }} />
+
+                    {/* Column 1: Priority */}
+                    <div style={{ width: '150px', flexShrink: 0 }}>
+                      <span style={{ fontSize: '0.75rem', fontWeight: 600, padding: '0.25rem 0.5rem', borderRadius: '4px', backgroundColor: priorityBg, color: accentColor, border: `1px solid ${accentColor}15` }}>
+                        {project.priority}
+                      </span>
                     </div>
-                    <div style={{ width: '100%', height: '8px', backgroundColor: '#e2e8f0', borderRadius: '9999px', overflow: 'hidden' }}>
-                      <div style={{ width: `${project.progress}%`, height: '100%', backgroundColor: project.status === 'Completed' ? '#10b981' : project.status === 'Blocked' ? '#ef4444' : '#4f46e5' }} />
+
+                    {/* Column 2: Core Context Heading */}
+                    <div style={{ flex: '1 1 0%', minWidth: '240px' }}>
+                      <h3 style={{ margin: '0 0 0.2rem 0', fontSize: '1.05rem', fontWeight: 600, color: '#111827', letterSpacing: '-0.01em' }}>
+                        {project.title}
+                      </h3>
+                      <p style={{ fontSize: '0.8rem', color: '#9ca3af', margin: 0, fontWeight: 400 }}>
+                        Manager <span style={{ color: '#4b5563', fontWeight: 500 }}>{project.admin}</span>
+                      </p>
                     </div>
+
+                    {/* Column 3: Custom Micro Status pill */}
+                    <div style={{ width: '120px', flexShrink: 0 }}>
+                      <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem', fontSize: '0.75rem', fontWeight: 600, padding: '0.2rem 0.6rem', borderRadius: '9999px', backgroundColor: statusBg, color: statusColor }}>
+                        <span style={{ width: '5px', height: '5px', borderRadius: '50%', backgroundColor: statusColor }} />
+                        {project.status}
+                      </span>
+                    </div>
+                    
+                    {/* Column 4: High-fidelity Progress Meter */}
+                    <div style={{ width: '180px', flexShrink: 0 }}>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.75rem', marginBottom: '0.35rem', fontWeight: 500 }}>
+                        <span style={{ color: '#9ca3af' }}>Progress</span>
+                        <span style={{ color: '#111827', fontWeight: 600 }}>{project.progress}%</span>
+                      </div>
+                      <div style={{ width: '100%', height: '6px', backgroundColor: '#f3f4f6', borderRadius: '9999px', overflow: 'hidden' }}>
+                        <div style={{ width: `${project.progress}%`, height: '100%', borderRadius: '9999px', backgroundColor: isComplete ? '#10b981' : isCancelled ? '#ef4444' : isPlanning ? '#7c3cdc': '#e6ae4d', transition: 'width 0.4s ease' }} />
+                      </div>
+                    </div>
+
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         )}
