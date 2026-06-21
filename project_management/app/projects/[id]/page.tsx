@@ -1,17 +1,13 @@
 "use client";
 
-import { useState, ReactNode } from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
+import { useParams } from 'next/navigation'; // High-level safe hook for Client Components
 
-// 1. Define a strict interface for the Next.js Dynamic Parameters
-interface PageProps {
-  params: Promise<{ id: string }>;
-}
-
-export default function ProjectDetailPage({ params }: PageProps) {
-  // 2. Safely unwrap the async parameter using React's use() hook
-  const resolvedParams = use(params); 
-  const projectId = resolvedParams.id;
+export default function ProjectDetailPage() {
+  // Safe Client-Side hook to get the ID instantly without async promises
+  const params = useParams();
+  const projectId = typeof params?.id === 'string' ? params.id : 'project';
 
   // Mock State Data
   const [comments, setComments] = useState([
@@ -39,8 +35,8 @@ export default function ProjectDetailPage({ params }: PageProps) {
         {/* Project Header Shell */}
         <div style={{ backgroundColor: '#ffffff', borderRadius: '12px', padding: '2rem', border: '1px solid #e2e8f0', boxShadow: '0 1px 3px rgba(0,0,0,0.05)', marginBottom: '1.5rem' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <h1 style={{ fontSize: '2rem', fontWeight: 700, margin: 0, color: '#0f172a' }}>
-              {projectId === 'big-short' ? 'Big Short Option Backtester' : projectId === 'note-server' ? 'Mobile Note Access API Server' : 'Code Engine MCP Indexer'}
+            <h1 style={{ fontSize: '2rem', fontWeight: 700, margin: 0, color: '#0f172a', textTransform: 'capitalize' }}>
+              {projectId.replace(/-/g, ' ')} Tracker Workspace
             </h1>
             <span style={{ padding: '0.35rem 0.75rem', backgroundColor: '#ffedd5', color: '#f97316', fontWeight: 700, borderRadius: '20px', fontSize: '0.85rem' }}>In Progress</span>
           </div>
@@ -77,7 +73,7 @@ export default function ProjectDetailPage({ params }: PageProps) {
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginBottom: '1.5rem' }}>
                 {comments.map((c) => (
                   <div key={c.id} style={{ backgroundColor: '#f8fafc', padding: '1rem', borderRadius: '8px', border: '1px solid #f1f5f9' }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.8rem', color: '#64748b', marginBottom: '0.25rem' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.8' + 'rem', color: '#64748b', marginBottom: '0.25rem' }}>
                       <b>{c.user}</b>
                       <span>{c.time}</span>
                     </div>
