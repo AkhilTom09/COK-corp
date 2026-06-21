@@ -1,11 +1,16 @@
 "use client";
 
-import { useState, use } from 'react';
+import { useState, ReactNode } from 'react';
 import Link from 'next/link';
 
-export default function ProjectDetailPage({ params }: { params: Promise<{ id: string }> }) {
-  // Unwrap the dynamic URL parameter (e.g., 'big-short')
-  const resolvedParams = use(params);
+// 1. Define a strict interface for the Next.js Dynamic Parameters
+interface PageProps {
+  params: Promise<{ id: string }>;
+}
+
+export default function ProjectDetailPage({ params }: PageProps) {
+  // 2. Safely unwrap the async parameter using React's use() hook
+  const resolvedParams = use(params); 
   const projectId = resolvedParams.id;
 
   // Mock State Data
