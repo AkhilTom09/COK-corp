@@ -6,24 +6,26 @@ import ProjectDetailTemplate from '../components/ProjectDetailTemplate';
 // 1. Structural Database Template Matrix
 const MOCK_DB_PROJECTS = [
   { 
-    id: 'brahmapuram-waste', 
+    id: 'C2026_01', 
     title: 'Vaduthala Railway Overbridge Construction', 
     status: 'In Progress', 
     progress: 45, 
     admin: 'Akhil', 
     priority: 'High Priority', 
     updated: '10 mins ago',
-    description: 'Constructing overbridge to bypass current railway crossing.',
+    description: 'Construction of a railway overbridge at Vaduthala to eliminate the existing level crossing bottleneck, improve traffic flow, enhance road safety, and provide seamless connectivity between key urban corridors. The project includes bridge construction, approach roads, utility relocation, drainage improvements, and associated traffic management works.',
     comments: [
       { id: 1, user: 'Clerk George', text: 'Test piling started.', time: '17 May 2026' },
       { id: 1, user: 'Clerk George', text: 'Test piling completed.', time: '22 June 2026' }
     ],
-    resources: ['📄 Railway_Overbridge_Plan.pdf', '🔗 Environmental Impact Data']
+    resources: ['📄 Railway_Overbridge_Plan.pdf', '🔗 Environmental Impact Data'],
+    budgetTotal: 3500,
+    budgetUsed: 5500
   },
   { 
     id: 'thammanam-road', 
     title: 'Thammanam–Pulleppady Road Four-Lane Widening & Land Acquisition', 
-    status: 'Cancelled', 
+    status: 'Planning', 
     progress: 0, 
     admin: 'Adith', 
     priority: 'High Priority', 
@@ -37,8 +39,8 @@ const MOCK_DB_PROJECTS = [
   },
   { 
     id: 'water-supply-190mld', 
-    title: '190 MLD Water Treatment Facility', 
-    status: 'Planning', 
+    title: 'Perandoor Canal Bridge', 
+    status: 'In Progress', 
     progress: 12, 
     admin: 'System', 
     priority: 'Medium Priority', 
