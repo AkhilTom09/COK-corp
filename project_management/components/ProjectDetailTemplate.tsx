@@ -130,7 +130,6 @@ export default function ProjectDetailTemplate({ project, onBack, onAddComment }:
         onClick={onBack} 
         style={{ 
           background: 'none', 
-          border: 'none', 
           color: '#4b5563', 
           fontWeight: 500, 
           fontSize: '0.85rem', 
