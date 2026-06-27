@@ -89,9 +89,10 @@ export default function ProjectDetailTemplate({ project, onBack, onAddComment }:
   const lifecycleStatuses = ['Planning', 'In Progress', 'Completed'];
 
   const phaseMatrix = [
-    { key: 'A', name: 'Phase A: Clearance', planStart: 0, planEnd: 2, actStart: 0, actEnd: 5, budgetWeight: 0.15 },
-    { key: 'B', name: 'Phase B: Piling Work', planStart: 2, planEnd: 5, actStart: 3, actEnd: 6, budgetWeight: 0.60 },
-    { key: 'C', name: 'Phase C: Girder Launch', planStart: 5, planEnd: 6, actStart: 5.35, actEnd: 6, budgetWeight: 0.25 }
+    { key: 'A', name: '25%', planStart: 0, planEnd: 0.5, actStart: 0, actEnd: 7, budgetWeight: 0.2 , budgetUsedWeight: 0.4},
+    { key: 'B', name: '50%', planStart: 0.5, planEnd: 2, actStart: 1, actEnd: 6, budgetWeight: 0.30 , budgetUsedWeight: 0.4},
+    { key: 'C', name: '75%', planStart: 2, planEnd: 4, actStart: 2.65, actEnd: 6, budgetWeight: 0.7 , budgetUsedWeight: 0.4},
+    { key: 'D', name: '100%', planStart: 4, planEnd: 6, actStart: 4.45, actEnd: 6, budgetWeight: 1 , budgetUsedWeight: 0.4 }
   ];
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -309,7 +310,7 @@ export default function ProjectDetailTemplate({ project, onBack, onAddComment }:
                 </div>
 
                 <div style={{ display: 'flex', borderBottom: '1px solid #f3f4f6', paddingBottom: '0.5rem', marginBottom: '1rem' }}>
-                  <div style={{ width: '120px', flexShrink: 0, fontSize: '0.75rem', fontWeight: 600, color: '#4b5563' }}>Phases</div>
+                  <div style={{ width: '120px', flexShrink: 0, fontSize: '0.75rem', fontWeight: 600, color: '#4b5563' }}>Percentage of Completion</div>
                   <div style={{ flex: 1, display: 'grid', gridTemplateColumns: 'repeat(6, 1fr)', gap: '4px', textAlign: 'center', fontSize: '0.7rem', fontWeight: 500, color: '#9ca3af' }}>
                     <span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span>
                   </div>
@@ -365,14 +366,14 @@ export default function ProjectDetailTemplate({ project, onBack, onAddComment }:
                 </div>
 
                 <div style={{ display: 'flex', borderBottom: '1px solid #f3f4f6', paddingBottom: '0.5rem', marginBottom: '1rem' }}>
-                  <div style={{ width: '120px', flexShrink: 0, fontSize: '0.75rem', fontWeight: 600, color: '#4b5563' }}>Phases</div>
+                  <div style={{ width: '120px', flexShrink: 0, fontSize: '0.75rem', fontWeight: 600, color: '#4b5563' }}>Percentage of Completion</div>
                   <div style={{ flex: 1, fontSize: '0.75rem', fontWeight: 600, color: '#4b5563', textAlign: 'right', paddingRight: '0.5rem' }}>Financial Utilization Progress Bar</div>
                 </div>
 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
                   {phaseMatrix.map((phase, idx) => {
                     const plannedCap = Math.floor(totalBudget * phase.budgetWeight);
-                    const actualCap = idx === 1 ? Math.floor(plannedCap * 1.3) : Math.floor(plannedCap * (project.progress / 100));
+                    const actualCap = Math.floor(totalBudget * phase.budgetUsedWeight);
 
                     const planPercent = (plannedCap / totalBudget) * 100;
                     const actPercent = (actualCap / totalBudget) * 100;

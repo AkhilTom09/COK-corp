@@ -8,7 +8,7 @@ const MOCK_DB_PROJECTS = [
   { 
     id: 'C2026_01', 
     title: 'Vaduthala Railway Overbridge Construction', 
-    status: 'In Progress', 
+    status: 'Work Progressing', 
     progress: 45, 
     admin: 'Akhil', 
     priority: 'High Priority', 
@@ -25,7 +25,7 @@ const MOCK_DB_PROJECTS = [
   { 
     id: 'thammanam-road', 
     title: 'Thammanam–Pulleppady Road Four-Lane Widening & Land Acquisition', 
-    status: 'Planning', 
+    status: 'Not Started', 
     progress: 0, 
     admin: 'Adith', 
     priority: 'High Priority', 
@@ -40,7 +40,7 @@ const MOCK_DB_PROJECTS = [
   { 
     id: 'water-supply-190mld', 
     title: 'Perandoor Canal Bridge', 
-    status: 'In Progress', 
+    status: 'Work Progressing', 
     progress: 12, 
     admin: 'System', 
     priority: 'Medium Priority', 
@@ -54,7 +54,7 @@ const MOCK_DB_PROJECTS = [
   { 
     id: 'canal-rejuvenation', 
     title: 'Vembanad Lake & Canal Rejuvenation Mission', 
-    status: 'Cancelled', 
+    status: 'Estimate Stage', 
     progress: 0, 
     admin: 'Adith', 
     priority: 'Medium Priority', 
@@ -82,7 +82,7 @@ const MOCK_DB_PROJECTS = [
   { 
     id: 'goshree-bridge', 
     title: 'Goshree–Bolghatty Parallel Bridge Engineering Framework', 
-    status: 'Planning', 
+    status: 'Estimate Stage', 
     progress: 5, 
     admin: 'Adith', 
     priority: 'Low Priority', 
@@ -157,7 +157,8 @@ export default function HomeDashboard() {
 
             {/* Premium Sub-Navigation Tab Segment */}
             <div style={{ marginBottom: '1.75rem', display: 'flex', gap: '0.35rem', borderBottom: '1px solid #e5e7eb', paddingBottom: '0.75rem' }}>
-              {['All', 'In Progress', 'Planning', 'Cancelled', 'Completed'].map((status) => (
+              {/* {['All', 'In Progress', 'Planning', 'Cancelled', 'Completed'].map((status) => ( */}
+              {['All', 'Not Started', 'File Initiated', 'Estimate Stage', 'Administrative Sanction Stage', 'Technical Sanction Stage', 'Tender Stage', 'Work Order Stage', 'Work Progressing', 'Completed',  'Delayed'].map((status) => (
                 <button 
                   key={status} 
                   onClick={() => setFilter(status)}
@@ -196,9 +197,9 @@ export default function HomeDashboard() {
 
                 const isComplete = project.status === 'Completed';
                 const isCancelled = project.status === 'Cancelled';
-                const isPlanning = project.status === 'Planning';
-                const statusColor = isComplete ? '#10b981' : isCancelled ? '#9ca3af' : isPlanning ? '#7c3cdc': '#f59e0b';
-                const statusBg = isComplete ? '#ecfdf5' : isCancelled ? '#f9fafb' : isPlanning ? '#f8f3ff' : '#fffbeb';
+                const isNotStarted = project.status === 'Not Started';
+                const statusColor = isComplete ? '#10b981' : isCancelled ? '#9ca3af' : isNotStarted ? '#80768f': '#0b97f5';
+                const statusBg = isComplete ? '#ecfdf5' : isCancelled ? '#f9fafb' : isNotStarted ? '#ebebeb' : '#ebfbff';
 
                 return (
                   <div 
@@ -265,7 +266,7 @@ export default function HomeDashboard() {
                         <span style={{ color: '#111827', fontWeight: 600 }}>{project.progress}%</span>
                       </div>
                       <div style={{ width: '100%', height: '6px', backgroundColor: '#f3f4f6', borderRadius: '9999px', overflow: 'hidden' }}>
-                        <div style={{ width: `${project.progress}%`, height: '100%', borderRadius: '9999px', backgroundColor: isComplete ? '#10b981' : isCancelled ? '#ef4444' : isPlanning ? '#7c3cdc': '#e6ae4d', transition: 'width 0.4s ease' }} />
+                        <div style={{ width: `${project.progress}%`, height: '100%', borderRadius: '9999px', backgroundColor: isComplete ? '#10b981' : isCancelled ? '#ef4444' : isNotStarted ? '#7c3cdc': '#e6ae4d', transition: 'width 0.4s ease' }} />
                       </div>
                     </div>
 
