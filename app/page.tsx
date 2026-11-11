@@ -5,93 +5,414 @@ import ProjectDetailTemplate from '../components/ProjectDetailTemplate';
 
 // 1. Structural Database Template Matrix
 const MOCK_DB_PROJECTS = [
-  { 
-    id: 'C2026_01', 
-    title: 'Vaduthala Railway Overbridge Construction', 
-    status: 'Work Progressing', 
-    progress: 45, 
-    admin: 'Akhil', 
-    priority: 'High Priority', 
-    updated: '10 mins ago',
-    description: 'Construction of a railway overbridge at Vaduthala to eliminate the existing level crossing bottleneck, improve traffic flow, enhance road safety, and provide seamless connectivity between key urban corridors. The project includes bridge construction, approach roads, utility relocation, drainage improvements, and associated traffic management works.',
+  {
+    id: 'KMRL/PH2/2024/06',
+    title: 'Kochi Metro Phase II, JLN Stadium to Infopark (Kakkanad)',
+    status: 'Work Progressing',
+    progress: 58,
+    admin: 'Er. Sreeja Menon, GM (Civil)',
+    priority: 'High Priority',
+    updated: '25 mins ago',
+    description: 'Elevated metro viaduct and stations from Jawaharlal Nehru Stadium to Infopark, Kakkanad, including the Palarivattom, Kakkanad and Infopark stations. Utility shifting of KSEB and KWA is in progress along the Seaport–Airport Road median. Work is under Kochi Metro Rail Ltd.',
     comments: [
-      { id: 1, user: 'Clerk George', text: 'Test piling started.', time: '17 May 2026' },
-      { id: 1, user: 'Clerk George', text: 'Test piling completed.', time: '22 June 2026' }
+      { id: 101, user: 'Er. Sreeja Menon', text: 'Pier caps cast up to Palarivattom. Segment launching starts after the KSEB shutdown on 16 Nov 2026.', time: '11 Nov 2026' },
+      { id: 102, user: 'AE, Kakkanad', text: 'Traffic diversion at CSEZ Junction approved by the City Traffic Police for night launching.', time: '10 Nov 2026' }
     ],
-    resources: ['📄 Railway_Overbridge_Plan.pdf', '🔗 Environmental Impact Data'],
-    budgetTotal: 3500,
-    budgetUsed: 5500
+    resources: ['📄 DPR_KMRL_PhaseII.pdf', '📄 GAD_Viaduct_Kakkanad.pdf', '🔗 KMRL Progress Sheet'],
+    budgetTotal: 25770000000,
+    budgetUsed: 14120000000,
+    locationDetails: {
+      coverageArea: 'JLN Stadium to Infopark, Kochi',
+      wardBoundary: 'KMRL Phase II corridor, Kakkanad',
+      siteAddress: 'Seaport–Airport Road median, Kakkanad'
+    },
+    financialBreakdown: {
+      fundingSource: 'KMRL, State and Central equity',
+      approvedBudget: 25770000000,
+      releasedAmount: 16800000000,
+      spentAmount: 14120000000
+    },
+    executionTimeline: {
+      startDate: '06 Jun 2024',
+      expectedCompletionDate: '31 Dec 2027',
+      actualCompletionDate: 'Pending Execution'
+    },
+    contractorProfile: {
+      companyName: 'Ernakulam Infra Consortium, Kaloor',
+      contractValue: 24840000000,
+      contractPeriod: '42 months',
+      contactPerson: 'Er. Vivek Shenoy',
+      contactDetails: '+91 484 230 4410',
+      qualityScore: 8.4
+    }
   },
-  { 
-    id: 'thammanam-road', 
-    title: 'Thammanam–Pulleppady Road Four-Lane Widening & Land Acquisition', 
-    status: 'Not Started', 
-    progress: 0, 
-    admin: 'Adith', 
-    priority: 'High Priority', 
+  {
+    id: 'PWD/EKM/SA/2025/028',
+    title: 'Sahodaran Ayyappan Road Widening, Kadavanthra to Vyttila',
+    status: 'Tender Stage',
+    progress: 18,
+    admin: 'Er. Rajeev P. Nair, EE',
+    priority: 'High Priority',
+    updated: '2 hours ago',
+    description: 'Widening of Sahodaran Ayyappan Road from Kadavanthra Junction to Vyttila to a four-lane carriageway with covered drains, footpath and a bus bay at Elamkulam. Land for the Vyttila end is in award stage under the RFCTLARR Act. Tender is live on the Kerala e-tender portal.',
+    comments: [
+      { id: 201, user: 'Er. Rajeev P. Nair', text: 'Technical sanction issued by the Chief Engineer, Roads. NIT published. Pre-bid meeting fixed for 18 Nov 2026 at the PWD Rest House, Ernakulam.', time: '10 Nov 2026' },
+      { id: 202, user: 'Section Clerk, Kadavanthra', text: 'Three bids downloaded. LA award for the Vyttila reach still to be gazetted.', time: '12 Nov 2026' }
+    ],
+    resources: ['📄 TS_Order_SA_Road.pdf', '📄 LA_Award_Vyttila.pdf', '🔗 Kerala e-Tender'],
+    budgetTotal: 1860000000,
+    budgetUsed: 24000000,
+    locationDetails: {
+      coverageArea: 'Kadavanthra to Vyttila, Kochi',
+      wardBoundary: 'PWD Roads Division, Ernakulam',
+      siteAddress: 'SA Road, Kadavanthra Junction'
+    },
+    financialBreakdown: {
+      fundingSource: 'KRFB through KIIFB',
+      approvedBudget: 1860000000,
+      releasedAmount: 60000000,
+      spentAmount: 24000000
+    },
+    executionTimeline: {
+      startDate: 'Pending work order',
+      expectedCompletionDate: '24 months from award',
+      actualCompletionDate: 'Pending Execution'
+    },
+    contractorProfile: {
+      companyName: 'Bid under evaluation',
+      contractValue: 1860000000,
+      contractPeriod: '24 months',
+      contactPerson: 'Not awarded',
+      contactDetails: 'PWD Roads Division, Ernakulam',
+      qualityScore: 0
+    }
+  },
+  {
+    id: 'SR/ERS/ROB/2025/12',
+    title: 'Kalamassery ROB in lieu of LC No. 12, Ernakulam–Shoranur Section',
+    status: 'Administrative Sanction Stage',
+    progress: 11,
+    admin: 'Er. Fathima Basheer, EE (Bridges)',
+    priority: 'High Priority',
+    updated: 'Yesterday',
+    description: 'Road overbridge to close level crossing No. 12 at Kalamassery on the Ernakulam–Shoranur section, with approaches towards Premier Junction and the University side. General arrangement drawing cleared by Ernakulam Division. Cost shared between the State and Southern Railway.',
+    comments: [
+      { id: 301, user: 'Er. Fathima Basheer', text: 'GAD approved by Southern Railway, Ernakulam Division. AS note sent to Government in PWD.', time: '08 Nov 2026' },
+      { id: 302, user: 'Overseer, Kalamassery', text: 'Joint inspection with the Railway section engineer completed. Span agreed at 1x36 m over the main lines.', time: '28 Oct 2026' }
+    ],
+    resources: ['📄 GAD_LC12_Kalamassery.pdf', '📄 Railway_Cost_Share_Note.pdf'],
+    budgetTotal: 964000000,
+    budgetUsed: 14800000,
+    locationDetails: {
+      coverageArea: 'Kalamassery, Kochi',
+      wardBoundary: 'PWD Bridges Division / Ernakulam Division',
+      siteAddress: 'LC No. 12, Kalamassery Railway Station end'
+    },
+    financialBreakdown: {
+      fundingSource: 'State PWD and Southern Railway, equal share',
+      approvedBudget: 964000000,
+      releasedAmount: 25000000,
+      spentAmount: 14800000
+    },
+    executionTimeline: {
+      startDate: 'Pending administrative sanction',
+      expectedCompletionDate: '30 months from work order',
+      actualCompletionDate: 'Pending Execution'
+    },
+    contractorProfile: {
+      companyName: 'Not awarded',
+      contractValue: 964000000,
+      contractPeriod: '30 months',
+      contactPerson: 'Not awarded',
+      contactDetails: 'EE Bridges, Ernakulam',
+      qualityScore: 0
+    }
+  },
+  {
+    id: 'PWD/EKM/ICTT/2024/009',
+    title: 'ICTT Connectivity Road Strengthening, Mulavukad to Vallarpadam',
+    status: 'Delayed',
+    progress: 51,
+    admin: 'Er. Anil Kumar K., EE',
+    priority: 'High Priority',
+    updated: '4 hours ago',
+    description: 'Strengthening and widening of the International Container Transshipment Terminal connectivity road from Mulavukad to Vallarpadam, with paved shoulders and replacement of two culverts over tidal creeks. Work slipped after the monsoon and a delayed KSEB shifting at the Vallarpadam end. Revised programme is with the Superintending Engineer, Ernakulam.',
+    comments: [
+      { id: 401, user: 'Er. Anil Kumar K.', text: 'Culvert at the Vallarpadam creek recast. KSEB feeder shifting still pending at Ch. 4.200.', time: '09 Nov 2026' },
+      { id: 402, user: 'AE, Mulavukad Section', text: 'Monsoon suspension was in force from 01 June. Carriageway work restarted on 20 September only up to Ch. 3.100.', time: '22 Sep 2026' }
+    ],
+    resources: ['📄 Revised_Programme_ICTT.pdf', '📄 KHRI_Soil_Report.pdf'],
+    budgetTotal: 412000000,
+    budgetUsed: 268000000,
+    locationDetails: {
+      coverageArea: 'Mulavukad to Vallarpadam, Kochi',
+      wardBoundary: 'PWD Roads Division, Ernakulam',
+      siteAddress: 'ICTT Road, Ch. 4.200, Vallarpadam'
+    },
+    financialBreakdown: {
+      fundingSource: 'State Plan and Sagarmala support',
+      approvedBudget: 412000000,
+      releasedAmount: 320000000,
+      spentAmount: 268000000
+    },
+    executionTimeline: {
+      startDate: '12 Nov 2024',
+      expectedCompletionDate: '31 May 2026',
+      actualCompletionDate: 'Overdue — revised date 31 Mar 2027'
+    },
+    contractorProfile: {
+      companyName: 'Island Constructions, Willingdon Island',
+      contractValue: 398000000,
+      contractPeriod: '18 months',
+      contactPerson: 'Er. Mathew George',
+      contactDetails: '+91 484 266 9044',
+      qualityScore: 6.9
+    }
+  },
+  {
+    id: 'PWD/BR/EKM/2026/004',
+    title: 'Venduruthy Bridge Approach Improvement, Thevara',
+    status: 'Estimate Stage',
+    progress: 7,
+    admin: 'Er. Meera Krishnan, AE',
+    priority: 'Medium Priority',
+    updated: '3 days ago',
+    description: 'Improvement of the Thevara and Willingdon Island approaches to Venduruthy Bridge, including junction widening, footpath and replacement of the distressed wearing course. Hydraulic particulars for the side drain outfall and a PRICE estimate are with the Design Wing, Ernakulam.',
+    comments: [
+      { id: 501, user: 'Er. Meera Krishnan', text: 'PRICE estimate v3 uploaded. Design Wing returned the drawing with remarks on the Thevara junction radius.', time: '09 Nov 2026' },
+      { id: 502, user: 'Overseer, Thevara', text: 'Trial pits on the Willingdon Island approach taken. Subgrade weaker than the 2004 as-built.', time: '02 Nov 2026' }
+    ],
+    resources: ['📄 PRICE_Estimate_v3.pdf', '📄 Junction_Plan_Thevara.pdf'],
+    budgetTotal: 186000000,
+    budgetUsed: 2800000,
+    locationDetails: {
+      coverageArea: 'Thevara and Willingdon Island, Kochi',
+      wardBoundary: 'PWD Bridges Section, Ernakulam',
+      siteAddress: 'Venduruthy Bridge, Thevara end'
+    },
+    financialBreakdown: {
+      fundingSource: 'State Plan, Bridges',
+      approvedBudget: 186000000,
+      releasedAmount: 4000000,
+      spentAmount: 2800000
+    },
+    executionTimeline: {
+      startDate: 'Pending technical sanction',
+      expectedCompletionDate: '12 months from work order',
+      actualCompletionDate: 'Pending Execution'
+    },
+    contractorProfile: {
+      companyName: 'Not awarded',
+      contractValue: 186000000,
+      contractPeriod: '12 months',
+      contactPerson: 'Not awarded',
+      contactDetails: 'AE Bridges, Ernakulam',
+      qualityScore: 0
+    }
+  },
+  {
+    id: 'KRFB/EKM/2025/017',
+    title: 'Seaport–Airport Road, HMT Junction to Infopark Gate',
+    status: 'Work Order Stage',
+    progress: 22,
+    admin: 'Er. Joseph Varghese, EE',
+    priority: 'Medium Priority',
+    updated: '6 hours ago',
+    description: 'Balance improvement of the Seaport–Airport Road from HMT Junction, Kalamassery, to the Infopark gate at Kakkanad: strengthening, service-road completion, and junction improvement at CSEZ. Work order issued. Site handed over except the HMT Junction stretch, where a KWA line is still to be shifted.',
+    comments: [
+      { id: 601, user: 'Er. Joseph Varghese', text: 'Work order issued to Nila Engineering Consortium, Aluva. Agreement executed on 04 Nov 2026.', time: '04 Nov 2026' },
+      { id: 602, user: 'AE, Kalamassery', text: 'Site handed over from Infopark Gate to CSEZ. HMT Junction held back until the KWA shifting.', time: '11 Nov 2026' }
+    ],
+    resources: ['📄 Work_Order_SPAR_017.pdf', '📄 Agreement.pdf', '🔗 KRFB Progress Sheet'],
+    budgetTotal: 740000000,
+    budgetUsed: 32000000,
+    locationDetails: {
+      coverageArea: 'Kalamassery to Kakkanad, Kochi',
+      wardBoundary: 'KRFB Project Unit, Ernakulam',
+      siteAddress: 'HMT Junction, Kalamassery'
+    },
+    financialBreakdown: {
+      fundingSource: 'KRFB through KIIFB',
+      approvedBudget: 740000000,
+      releasedAmount: 110000000,
+      spentAmount: 32000000
+    },
+    executionTimeline: {
+      startDate: '04 Nov 2026',
+      expectedCompletionDate: '03 May 2028',
+      actualCompletionDate: 'Pending Execution'
+    },
+    contractorProfile: {
+      companyName: 'Nila Engineering Consortium, Aluva',
+      contractValue: 708000000,
+      contractPeriod: '18 months',
+      contactPerson: 'Er. Priya Ramachandran',
+      contactDetails: '+91 484 262 7710',
+      qualityScore: 8.1
+    }
+  },
+  {
+    id: 'RVNL/ERS/DL/2025/04',
+    title: 'Ernakulam Town–Tripunithura Doubling and Tripunithura Yard',
+    status: 'Technical Sanction Stage',
+    progress: 14,
+    admin: 'Er. Lakshmi Priya, Dy. CE',
+    priority: 'Medium Priority',
     updated: '1 day ago',
-    description: 'Crucial urban arterial roadway alignment project aimed at easing heavy peak traffic gridlock across downtown Ernakulam sectors.',
+    description: 'Doubling between Ernakulam Town and Tripunithura under RVNL, with yard remodelling at Tripunithura and a road-under-bridge opening near the Pettah level crossing. CRS observations on the signalling plan are under reply. Technical sanction of the civil estimate is with the Chief Engineer.',
     comments: [
-      { id: 1, user: 'System', text: 'Land valuation files pending physical verification stamp at the taluk revenue office.', time: '1 day ago' },
-      { id: 2, user: 'Adith', text: 'Following up with municipal surveyors regarding division line objections.', time: '5 hours ago' }
+      { id: 701, user: 'Er. Lakshmi Priya', text: 'Civil estimate for the Pettah RUB recast after CRS remarks on vertical clearance. TS file with Chief Engineer.', time: '11 Nov 2026' },
+      { id: 702, user: 'RVNL Site Office, Ernakulam', text: 'Utility duct locations marked with KWA along the Tripunithura yard. No shifting on the track bed until TS.', time: '05 Nov 2026' }
     ],
-    resources: ['📄 Property_Survey_Map_V4.pdf', '🔗 Clearance Tracker']
+    resources: ['📄 CRS_Observations.pdf', '📄 Yard_Plan_Tripunithura.pdf'],
+    budgetTotal: 1680000000,
+    budgetUsed: 36000000,
+    locationDetails: {
+      coverageArea: 'Ernakulam Town to Tripunithura',
+      wardBoundary: 'RVNL / Ernakulam Division',
+      siteAddress: 'Tripunithura yard, Southern Railway'
+    },
+    financialBreakdown: {
+      fundingSource: 'RVNL, extra-budgetary (IRFC)',
+      approvedBudget: 1680000000,
+      releasedAmount: 70000000,
+      spentAmount: 36000000
+    },
+    executionTimeline: {
+      startDate: 'Pending technical sanction',
+      expectedCompletionDate: '30 months from award',
+      actualCompletionDate: 'Pending Execution'
+    },
+    contractorProfile: {
+      companyName: 'Not awarded',
+      contractValue: 1680000000,
+      contractPeriod: '30 months',
+      contactPerson: 'Not awarded',
+      contactDetails: 'Dy. CE, RVNL, Ernakulam',
+      qualityScore: 0
+    }
   },
-  { 
-    id: 'water-supply-190mld', 
-    title: 'Perandoor Canal Bridge', 
-    status: 'Work Progressing', 
-    progress: 12, 
-    admin: 'System', 
-    priority: 'Medium Priority', 
-    updated: '3 hours ago',
-    description: 'Comprehensive engineering phase for a mega-capacity purification grid to solve distribution deficits in local coastal divisions.',
-    comments: [
-      { id: 1, user: 'System', text: 'Initial allocation budget drafts uploaded successfully to state finance portal.', time: '3 hours ago' }
-    ],
-    resources: ['📄 Intake_Structure_Drafts.pdf']
-  },
-  { 
-    id: 'canal-rejuvenation', 
-    title: 'Vembanad Lake & Canal Rejuvenation Mission', 
-    status: 'Estimate Stage', 
-    progress: 0, 
-    admin: 'Adith', 
-    priority: 'Medium Priority', 
-    updated: '1 week ago',
-    description: 'Proposed desiltation, eco-restoration, and structural pathway embankments across primary tidal water channels feeding the lake basin.',
-    comments: [
-      { id: 1, user: 'Adith', text: 'Project closed out due to budgetary realignments and overlap with centrally funded irrigation initiatives.', time: '1 week ago' }
-    ],
-    resources: ['📄 Decommissioning_Report.pdf']
-  },
-  { 
-    id: 'traffic-management', 
-    title: 'Integrated Traffic Management System (ITMS)', 
-    status: 'Completed', 
-    progress: 100, 
-    admin: 'System', 
-    priority: 'Low Priority', 
-    updated: '2 days ago',
-    description: 'Deployment of automated smart traffic signal controllers alongside PTZ violation detection networks across 35 major junctions.',
-    comments: [
-      { id: 1, user: 'System', text: 'Red Light Violation Detection hardware networks fully synchronized with central servers.', time: '2 days ago' }
-    ],
-    resources: ['📄 Junction_Hardware_Specs.pdf', '🔗 Live Camera Interface']
-  },
-  { 
-    id: 'goshree-bridge', 
-    title: 'Goshree–Bolghatty Parallel Bridge Engineering Framework', 
-    status: 'Estimate Stage', 
-    progress: 5, 
-    admin: 'Adith', 
-    priority: 'Low Priority', 
+  {
+    id: 'PWD/BR/EKM/2026/011',
+    title: 'Cheranalloor–Varapuzha Bridge across the Periyar Arm',
+    status: 'File Initiated',
+    progress: 3,
+    admin: 'Er. Abdul Rahman, AE',
+    priority: 'Medium Priority',
     updated: '5 hours ago',
-    description: 'Preparatory alignment assessment mapping and load-bearing test setups for the twin island connectivity thoroughfare.',
+    description: 'New bridge linking Cheranalloor and Varapuzha across the Periyar arm in north Kochi, with short approach roads on either bank. File opened for alignment, CRZ remarks and a preliminary estimate. No sanction yet.',
     comments: [
-      { id: 1, user: 'Adith', text: 'Preliminary soil testing data requested from offshore drilling consultant.', time: '5 hours ago' }
+      { id: 801, user: 'Er. Abdul Rahman', text: 'File initiated. Alignment sketch sent to the District Collector, Ernakulam, and the KCZMA for CRZ remarks.', time: '07 Nov 2026' },
+      { id: 802, user: 'Section Clerk, Cheranalloor', text: 'Survey stones fixed on the Cheranalloor bank. Two riverside objections recorded at Varapuzha.', time: '12 Nov 2026' }
     ],
-    resources: ['📄 Bridge_Structural_Scope.pdf']
+    resources: ['📄 Alignment_Sketch.pdf', '📄 File_Initiation_Note.pdf'],
+    budgetTotal: 640000000,
+    budgetUsed: 0,
+    locationDetails: {
+      coverageArea: 'Cheranalloor to Varapuzha, Kochi',
+      wardBoundary: 'PWD Bridges Section, Ernakulam',
+      siteAddress: 'Varapuzha ferry, Cheranalloor bank'
+    },
+    financialBreakdown: {
+      fundingSource: 'Proposed under State Plan, Bridges',
+      approvedBudget: 640000000,
+      releasedAmount: 0,
+      spentAmount: 0
+    },
+    executionTimeline: {
+      startDate: 'File initiated 07 Nov 2026',
+      expectedCompletionDate: 'Not sanctioned',
+      actualCompletionDate: 'Pending Execution'
+    },
+    contractorProfile: {
+      companyName: 'Not awarded',
+      contractValue: 640000000,
+      contractPeriod: 'Not fixed',
+      contactPerson: 'Not awarded',
+      contactDetails: 'AE Bridges, Ernakulam',
+      qualityScore: 0
+    }
+  },
+  {
+    id: 'KC/LSGD/2026/088',
+    title: 'Fort Kochi–Mattancherry Road Relaying, Phase III (9.2 km)',
+    status: 'Not Started',
+    progress: 0,
+    admin: 'Er. Deepa Thomas, AE (LSGD)',
+    priority: 'Low Priority',
+    updated: '1 week ago',
+    description: 'Third phase of road concreting and drain cover slabs in Fort Kochi and Mattancherry, covering 11 links totalling 9.2 km under Kochi Corporation. Included in the 2026–27 annual plan from CFC grant and corporation own fund. PRICE file not yet opened.',
+    comments: [
+      { id: 901, user: 'Er. Deepa Thomas', text: 'Works listed in the corporation annual plan. Ward-wise chainage to be frozen after the council meeting on 20 Nov 2026.', time: '05 Nov 2026' }
+    ],
+    resources: ['📄 Annual_Plan_2026_27.pdf'],
+    budgetTotal: 92000000,
+    budgetUsed: 0,
+    locationDetails: {
+      coverageArea: 'Fort Kochi and Mattancherry, Kochi Corporation',
+      wardBoundary: '11 corporation links, Phase III',
+      siteAddress: 'Kochi Corporation Engineering Wing, Fort Kochi'
+    },
+    financialBreakdown: {
+      fundingSource: 'CFC grant and Kochi Corporation own fund',
+      approvedBudget: 92000000,
+      releasedAmount: 0,
+      spentAmount: 0
+    },
+    executionTimeline: {
+      startDate: 'Not started',
+      expectedCompletionDate: '31 Mar 2027',
+      actualCompletionDate: 'Pending Execution'
+    },
+    contractorProfile: {
+      companyName: 'Not awarded',
+      contractValue: 92000000,
+      contractPeriod: '9 months',
+      contactPerson: 'Not awarded',
+      contactDetails: 'LSGD Section, Kochi Corporation',
+      qualityScore: 0
+    }
+  },
+  {
+    id: 'KRFB/EKM/2022/006',
+    title: 'Kundannoor Flyover, NH 66 Junction, Kochi',
+    status: 'Completed',
+    progress: 100,
+    admin: 'Er. Suresh Babu, EE',
+    priority: 'Low Priority',
+    updated: '2 days ago',
+    description: 'Four-lane flyover at the Kundannoor junction on NH 66, with service-road tie-ins towards Vyttila, Maradu and the Aroor side. Opened to traffic. Final bill is with the Accountant General for audit.',
+    comments: [
+      { id: 1001, user: 'Er. Suresh Babu', text: 'Flyover opened to traffic on 18 Mar 2026. Completion certificate issued. Final bill under AG audit.', time: '18 Mar 2026' },
+      { id: 1002, user: 'AE, Maradu', text: 'Defect-liability inspection done. Two expansion-joint seals instructed to the contractor before the monsoon.', time: '10 Nov 2026' }
+    ],
+    resources: ['📄 Completion_Certificate.pdf', '📄 Final_Bill.pdf', '🔗 KRFB Asset Register'],
+    budgetTotal: 2840000000,
+    budgetUsed: 2765000000,
+    locationDetails: {
+      coverageArea: 'Kundannoor, Maradu, Kochi',
+      wardBoundary: 'KRFB Project Unit, Ernakulam',
+      siteAddress: 'Kundannoor Junction, NH 66'
+    },
+    financialBreakdown: {
+      fundingSource: 'KRFB through KIIFB',
+      approvedBudget: 2840000000,
+      releasedAmount: 2840000000,
+      spentAmount: 2765000000
+    },
+    executionTimeline: {
+      startDate: '15 Jan 2023',
+      expectedCompletionDate: '31 Dec 2025',
+      actualCompletionDate: '18 Mar 2026'
+    },
+    contractorProfile: {
+      companyName: 'Kerala State Construction Corporation Ltd.',
+      contractValue: 2710000000,
+      contractPeriod: '30 months',
+      contactPerson: 'Er. Rajan Pillai',
+      contactDetails: '+91 484 245 3308',
+      qualityScore: 9.1
+    }
   }
 ];
 
